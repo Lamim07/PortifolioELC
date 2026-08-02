@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.env.local
+*.log
+assets/hero-architecture.png
+assets/luis-eduardo-lamim-cardoso-curriculo.pdf
