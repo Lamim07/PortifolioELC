@@ -63,6 +63,7 @@ const portuguese = {
   },
   hero: {
     role: "Software Developer",
+    roles: ["Backend .NET", "Arquitetura de software", "SQL e sistemas corporativos"],
     statement: "Construo o backend que ninguém vê, mas todo produto precisa:",
     statementStrong: " organizado, performático e pronto para evoluir.",
     explore: "Explorar trajetória",
@@ -124,7 +125,7 @@ const portuguese = {
     {
       title: "Backend e arquitetura",
       description: "Construção de aplicações organizadas e rastreáveis, com separação de responsabilidades e manutenção sustentável.",
-      skills: [".NET", "C#", "WinForms", "Arquitetura em camadas", "Refatoração"],
+      skills: [".NET", "C#", ".NET Framework 4.8", "WinForms", "Arquitetura em camadas", "Injeção de dependências", "Factory Pattern", "DTOs", "AutoMapper", "async/await", "LINQ", "Refatoração"],
       metric: 88,
     },
     {
@@ -136,84 +137,16 @@ const portuguese = {
     {
       title: "SQL e modelagem",
       description: "Modelagem de regras e integração com bancos relacionais, incluindo contextos legados.",
-      skills: ["SQL", "Modelagem de dados", "Microsoft Access", "Consultas", "Bancos relacionais", "Performance"],
+      skills: ["SQL", "SQL Server", "ADO.NET", "OLE DB", "Microsoft Access", "Consultas parametrizadas", "Transações", "Modelagem de dados", "Performance"],
       metric: 84,
     },
     {
-      title: "Qualidade profissional",
-      description: "Rotina orientada por clareza, documentação, colaboração e melhoria contínua.",
-      skills: ["Documentação técnica", "Organização", "Qualidade", "Colaboração", "Análise", "Aprendizado contínuo"],
+      title: "Qualidade, desktop e entrega",
+      description: "Práticas de qualidade, componentização de interfaces desktop, versionamento e distribuição de aplicações corporativas.",
+      skills: ["Git", "ClickOnce", "Crystal Reports", "GDI+", "DataGridView", "ApplicationContext", "Mutex", "Documentação XML", "Guard clauses", "Componentes reutilizáveis", "Organização", "Qualidade", "Colaboração"],
       metric: 91,
     },
   ],
-  cedapHeading: {
-    eyebrow: "Caso real · CEDAP HUB FRAMEWORK",
-    title: "Engenharia aplicada em um sistema corporativo real",
-    practical: "Aplicação prática",
-    competenciesTitle: "Principais competências demonstradas",
-    competenciesIntro:
-      "Esse trabalho demonstra minha capacidade de combinar arquitetura, dados e experiência operacional em uma solução corporativa que evolui de forma contínua.",
-    nextSteps: "Próximos passos",
-    evolutionTitle: "Evolução técnica",
-    evolutionIntro:
-      "Estou direcionando as próximas melhorias para ampliar segurança, previsibilidade e capacidade de diagnóstico do sistema.",
-  },
-  cedapFramework: {
-    intro:
-      "No CEDAP HUB FRAMEWORK, desenvolvo uma aplicação desktop corporativa em C# e .NET Framework 4.8. Organizei a solução como um monólito modular com 17 projetos, atendendo diferentes domínios de negócio e integrando SQL Server a bases legadas em Microsoft Access.",
-    highlights: [
-      { value: "17", label: "projetos na solução" },
-      { value: "8", label: "domínios de negócio" },
-      { value: "2", label: "ecossistemas de dados" },
-    ],
-    categories: [
-      {
-        title: "Arquitetura e design",
-        description:
-          "Estruturei a solução em camadas de apresentação, negócio e dados, com módulos orientados a POP, Macroscopia, Pacientes, Requisições, Colaboradores, Convênios, Ramais e Pessoal. Interfaces, injeção de dependências e factories reduzem o acoplamento; DTOs, AutoMapper e estados explícitos tornam os fluxos mais previsíveis.",
-        tags: ["Monólito modular", "POO", "Injeção de dependências", "Factory Pattern", "DTO + AutoMapper", "Estados de negócio"],
-      },
-      {
-        title: "Backend e acesso a dados",
-        description:
-          "Implementei acesso a SQL Server e Access com ADO.NET e OLE DB por meio de providers abstraídos. Consultas parametrizadas, transações com commit e rollback, tratamento de DBNull e operações assíncronas protegem os dados e mantêm as regras de negócio separadas dos comandos de banco.",
-        tags: ["C#", ".NET Framework 4.8", "ADO.NET", "SQL Server", "Access + OLE DB", "async/await", "LINQ"],
-      },
-      {
-        title: "Desktop e experiência",
-        description:
-          "Construí fluxos operacionais em Windows Forms com uma biblioteca própria de componentes. Controles GDI+, DataGridViews padronizados, double buffering e formulários adaptáveis melhoram consistência e fluidez; navegação desacoplada e ApplicationContext controlam abertura, estado e ciclo de vida das telas.",
-        tags: ["Windows Forms", "Componentes reutilizáveis", "GDI+", "DataGridView", "ApplicationContext", "Dashboards e filtros"],
-      },
-      {
-        title: "Implantação e integrações",
-        description:
-          "Organizei atualização e versionamento com ClickOnce e usei Mutex para garantir uma única instância da aplicação. A solução integra Crystal Reports e opera simultaneamente com SQL Server e sistemas legados em Access, com o histórico de evolução controlado por Git.",
-        tags: ["ClickOnce", "Mutex", "Crystal Reports", "SQL + Access", "Git"],
-      },
-      {
-        title: "Qualidade e manutenção",
-        description:
-          "Apliquei guard clauses, validação de dependências e tratamento explícito de resultados nulos para antecipar falhas. Interfaces, implementations, mappings, factories e services organizam responsabilidades, enquanto documentação XML, nomes de domínio, helpers e recursos centralizados facilitam manutenção e evolução.",
-        tags: ["Guard clauses", "ArgumentNullException", "Documentação XML", "Nomes de domínio", "Helpers compartilhados", "Recursos centralizados"],
-      },
-    ],
-    competencies: [
-      "Arquitetura e manutenção de sistemas desktop corporativos modulares",
-      "Modelagem de domínios complexos e fluxos operacionais",
-      "Integração transacional com SQL Server e Access legado",
-      "Modernização gradual de WinForms e componentes reutilizáveis",
-      "Programação assíncrona, dashboards e relatórios",
-      "Evolução de uma solução com 17 projetos conectados",
-    ],
-    evolution: [
-      "Testes automatizados",
-      "Pipeline de CI",
-      "Logging estruturado e observabilidade",
-      "Autenticação e gestão de segredos",
-      "Redução de hotspots de manutenção",
-    ],
-  },
   educationHeading: { eyebrow: "Formação", title: "Aprendizado em evolução constante" },
   education: [
     { period: "Fevereiro de 2025 - julho de 2029", title: "Engenharia de Software", institution: "Universidade da Região de Joinville" },
@@ -292,6 +225,7 @@ const english = {
   },
   hero: {
     role: "Software Developer",
+    roles: [".NET Backend", "Software architecture", "SQL & corporate systems"],
     statement: "I build the backend no one sees, but every product needs:",
     statementStrong: " structured, performant, and ready to evolve.",
     explore: "Explore my journey",
@@ -353,7 +287,7 @@ const english = {
     {
       title: "Backend and architecture",
       description: "Building organized and traceable applications with clear responsibilities and sustainable maintenance.",
-      skills: [".NET", "C#", "WinForms", "Layered architecture", "Refactoring"],
+      skills: [".NET", "C#", ".NET Framework 4.8", "WinForms", "Layered architecture", "Dependency injection", "Factory Pattern", "DTOs", "AutoMapper", "async/await", "LINQ", "Refactoring"],
       metric: 88,
     },
     {
@@ -365,84 +299,16 @@ const english = {
     {
       title: "SQL and modeling",
       description: "Modeling business rules and integrating relational databases, including legacy environments.",
-      skills: ["SQL", "Data modeling", "Microsoft Access", "Queries", "Relational databases", "Performance"],
+      skills: ["SQL", "SQL Server", "ADO.NET", "OLE DB", "Microsoft Access", "Parameterized queries", "Transactions", "Data modeling", "Performance"],
       metric: 84,
     },
     {
-      title: "Professional quality",
-      description: "A work routine guided by clarity, documentation, collaboration, and continuous improvement.",
-      skills: ["Technical documentation", "Organization", "Quality", "Collaboration", "Analysis", "Continuous learning"],
+      title: "Quality, desktop and delivery",
+      description: "Quality practices, desktop UI componentization, version control, and corporate application delivery.",
+      skills: ["Git", "ClickOnce", "Crystal Reports", "GDI+", "DataGridView", "ApplicationContext", "Mutex", "XML documentation", "Guard clauses", "Reusable components", "Organization", "Quality", "Collaboration"],
       metric: 91,
     },
   ],
-  cedapHeading: {
-    eyebrow: "Real-world case · CEDAP HUB FRAMEWORK",
-    title: "Engineering applied to a real corporate system",
-    practical: "Practical application",
-    competenciesTitle: "Core competencies demonstrated",
-    competenciesIntro:
-      "This work demonstrates my ability to combine architecture, data, and operational experience in a corporate solution that continues to evolve.",
-    nextSteps: "Next steps",
-    evolutionTitle: "Technical evolution",
-    evolutionIntro:
-      "I am directing the next improvements toward stronger security, predictability, and system diagnostics.",
-  },
-  cedapFramework: {
-    intro:
-      "In the CEDAP HUB FRAMEWORK, I develop a corporate desktop application using C# and .NET Framework 4.8. I organized the solution as a modular monolith with 17 projects, supporting multiple business domains and integrating SQL Server with legacy Microsoft Access databases.",
-    highlights: [
-      { value: "17", label: "projects in the solution" },
-      { value: "8", label: "business domains" },
-      { value: "2", label: "data ecosystems" },
-    ],
-    categories: [
-      {
-        title: "Architecture and design",
-        description:
-          "I structured the solution into presentation, business, and data layers, with modules aligned to SOPs, Gross Examination, Patients, Requests, Employees, Insurance Providers, Extensions, and HR. Interfaces, dependency injection, and factories reduce coupling, while DTOs, AutoMapper, and explicit states make workflows more predictable.",
-        tags: ["Modular monolith", "OOP", "Dependency injection", "Factory Pattern", "DTO + AutoMapper", "Business states"],
-      },
-      {
-        title: "Backend and data access",
-        description:
-          "I implemented SQL Server and Access integration with ADO.NET and OLE DB through abstracted providers. Parameterized queries, commit and rollback transactions, DBNull handling, and asynchronous operations protect data while keeping business rules separate from database commands.",
-        tags: ["C#", ".NET Framework 4.8", "ADO.NET", "SQL Server", "Access + OLE DB", "async/await", "LINQ"],
-      },
-      {
-        title: "Desktop and user experience",
-        description:
-          "I built operational workflows in Windows Forms with a custom component library. GDI+ controls, standardized DataGridViews, double buffering, and adaptive forms improve consistency and responsiveness, while decoupled navigation and ApplicationContext manage screen state and lifecycle.",
-        tags: ["Windows Forms", "Reusable components", "GDI+", "DataGridView", "ApplicationContext", "Dashboards and filters"],
-      },
-      {
-        title: "Deployment and integrations",
-        description:
-          "I organized updates and versioning with ClickOnce and used Mutex to enforce a single application instance. The solution integrates Crystal Reports and works with SQL Server and legacy Access systems simultaneously, with its evolution tracked through Git.",
-        tags: ["ClickOnce", "Mutex", "Crystal Reports", "SQL + Access", "Git"],
-      },
-      {
-        title: "Quality and maintenance",
-        description:
-          "I applied guard clauses, dependency validation, and explicit null-result handling to anticipate failures. Interfaces, implementations, mappings, factories, and services organize responsibilities, while XML documentation, domain-oriented names, helpers, and centralized resources support maintenance and evolution.",
-        tags: ["Guard clauses", "ArgumentNullException", "XML documentation", "Domain naming", "Shared helpers", "Centralized resources"],
-      },
-    ],
-    competencies: [
-      "Architecture and maintenance of modular corporate desktop systems",
-      "Complex domain and operational workflow modeling",
-      "Transactional integration with SQL Server and legacy Access",
-      "Gradual WinForms modernization and reusable components",
-      "Asynchronous programming, dashboards, and reports",
-      "Evolution of an interconnected 17-project solution",
-    ],
-    evolution: [
-      "Automated tests",
-      "CI pipeline",
-      "Structured logging and observability",
-      "Authentication and secrets management",
-      "Progressive reduction of maintenance hotspots",
-    ],
-  },
   educationHeading: { eyebrow: "Education", title: "Continuous learning and growth" },
   education: [
     { period: "February 2025 - July 2029", title: "Software Engineering", institution: "Universidade da Região de Joinville" },

@@ -391,6 +391,55 @@ function Reveal({ children, className = "", delay = 0, as = motion.div }) {
   );
 }
 
+function RoleRotator({ label, roles }) {
+  const [activeRole, setActiveRole] = useState(0);
+
+  useEffect(() => {
+    setActiveRole(0);
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || roles.length < 2) return undefined;
+
+    const interval = window.setInterval(() => {
+      setActiveRole((current) => (current + 1) % roles.length);
+    }, 2800);
+
+    return () => window.clearInterval(interval);
+  }, [roles]);
+
+  return (
+    <span
+      className="role-rotator flex w-full min-w-0 items-center gap-2 font-mono text-[10px] font-bold uppercase sm:w-auto sm:text-xs"
+      aria-label={`${label}: ${roles.join(", ")}`}
+    >
+      <span className="relative flex size-2 shrink-0" aria-hidden="true">
+        <span className="absolute inline-flex size-full animate-ping rounded-full bg-mint opacity-45" />
+        <span className="relative inline-flex size-2 rounded-full bg-mint shadow-[0_0_16px_rgba(66,242,168,.9)]" />
+      </span>
+      <span className="shrink-0 text-mint" aria-hidden="true">{label}</span>
+      <span className="text-bone/25" aria-hidden="true">/</span>
+      <span className="relative h-5 min-w-0 flex-1 overflow-hidden text-aqua sm:w-[190px] sm:flex-none" aria-hidden="true">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={roles[activeRole]}
+            className="absolute inset-0 flex items-center whitespace-nowrap"
+            initial={{ opacity: 0, y: 10, filter: "blur(5px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -10, filter: "blur(5px)" }}
+            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {roles[activeRole]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </span>
+  );
+}
+
+function SectionGlow({ tone = "mint", side = "left" }) {
+  return <span className={cn("section-glow", `section-glow-${tone}`, `section-glow-${side}`)} aria-hidden="true" />;
+}
+
 function AmbientCanvas({ global = false }) {
   const canvasRef = useRef(null);
 
@@ -643,7 +692,7 @@ function Header() {
             <span className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-steel-sheen transition-transform duration-300 group-hover:scale-x-100" />
           </span>
           <span className="hidden min-w-0 sm:block">
-            <strong className="block truncate text-sm font-black leading-5">{profile.name.split(" ").slice(0, 2).join(" ")}</strong>
+            <strong className="block whitespace-nowrap text-[13px] font-black leading-5 xl:text-sm">{profile.name}</strong>
             <span className="flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase text-bone/45 transition-colors group-hover:text-mint/80">
               <span className="size-1 rounded-full bg-mint shadow-[0_0_8px_rgba(66,242,168,.8)]" />
               {header.role}
@@ -818,8 +867,8 @@ function GlassCard({ children, className = "", as: Component = "div" }) {
 function SectionHeading({ eyebrow, title, intro, centered = false }) {
   return (
     <Reveal className={cn("max-w-3xl", centered && "mx-auto text-center")}>
-      <p className="mb-3 font-mono text-xs font-bold uppercase text-mint">{eyebrow}</p>
-      <h2 className="text-4xl font-black leading-[1.02] text-bone sm:text-5xl lg:text-6xl">{title}</h2>
+      <p className="mb-4 font-mono text-sm font-black uppercase tracking-[0.12em] text-mint sm:text-base">{eyebrow}</p>
+      <h2 className="section-heading-title text-4xl font-black leading-[1.02] sm:text-5xl lg:text-6xl">{title}</h2>
       {intro ? <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">{intro}</p> : null}
     </Reveal>
   );
@@ -933,6 +982,9 @@ function Hero() {
   const { content } = usePortfolio();
   const { hero } = content;
   const statIcons = [ServerCog, Braces, ArrowUpRight];
+  const nameParts = profile.name.split(" ");
+  const primaryName = nameParts.slice(0, 2).join(" ");
+  const remainingName = nameParts.slice(2).join(" ");
 
   return (
     <section id="inicio" className="relative flex min-h-[90svh] items-center overflow-hidden pb-6 pt-28 lg:min-h-[92svh] lg:pb-0">
@@ -951,10 +1003,7 @@ function Hero() {
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(440px,.98fr)] xl:gap-16">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-[720px]">
             <motion.div variants={fadeUp} className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <span className="flex items-center gap-2 font-mono text-xs font-bold uppercase text-mint">
-                <span className="size-1.5 rounded-full bg-mint shadow-[0_0_16px_rgba(66,242,168,.9)]" />
-                {hero.role}
-              </span>
+              <RoleRotator label={hero.role} roles={hero.roles} />
               <span className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-bone/55">
                 <MapPin size={13} className="text-aqua" />
                 {profile.location}
@@ -965,8 +1014,8 @@ function Hero() {
             variants={fadeUp}
               className="max-w-5xl text-[48px] font-black leading-[0.92] text-bone sm:text-[64px] lg:text-[68px] xl:text-[82px]"
           >
-              <span className="block">Luis Eduardo</span>
-              <span className="hero-name-accent block">Cardoso.</span>
+              <span className="block">{primaryName}</span>
+              <span className="hero-name-accent block">{remainingName}.</span>
           </motion.h1>
 
             <motion.div variants={fadeUp} className="mt-7 flex max-w-2xl gap-4 sm:items-start">
@@ -1031,6 +1080,7 @@ function About() {
 
   return (
     <section id="sobre" className="relative pb-24 pt-0 sm:pb-32">
+      <SectionGlow tone="mint" side="right" />
       <div className="mx-auto grid w-[min(1120px,calc(100vw-32px))] gap-12 lg:grid-cols-[0.85fr_1fr]">
         <SectionHeading eyebrow={about.eyebrow} title={about.title} />
         <Reveal className="space-y-6 text-lg leading-9 text-bone/[0.78]">
@@ -1056,16 +1106,20 @@ function Experience() {
 
   return (
     <section id="experiencia" className="relative py-24 sm:py-32">
+      <SectionGlow tone="aqua" side="left" />
       <div className="mx-auto w-[min(1120px,calc(100vw-32px))]">
         <SectionHeading eyebrow={experienceHeading.eyebrow} title={experienceHeading.title} centered />
 
         <div className="relative mx-auto mt-16 max-w-4xl">
-          <div className="absolute bottom-8 left-[17px] top-8 w-px bg-gradient-to-b from-transparent via-mint/55 to-transparent" />
+          <div className="experience-flow absolute bottom-8 left-[17px] top-8 w-px" />
 
           <div className="grid gap-7">
             {experiences.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.08} className="relative grid grid-cols-[34px_1fr] gap-5">
-                <div className="relative z-10 mt-6 size-4 rounded-full border-2 border-mint bg-ink shadow-glow" />
+                <div className="relative z-10 mt-6 grid size-4 place-items-center">
+                  <span className="timeline-node-pulse absolute size-8 rounded-full border border-mint/30" style={{ animationDelay: `${index * 0.42}s` }} aria-hidden="true" />
+                  <span className="relative size-4 rounded-full border-2 border-mint bg-ink shadow-glow" />
+                </div>
                 <GlassCard as="article" className="p-6 sm:p-7">
                   <div className="mb-4 flex flex-wrap items-center gap-3">
                     <span className="rounded-lg border border-amber/20 bg-amber/10 px-3 py-1 font-mono text-xs font-bold text-amber">
@@ -1102,6 +1156,7 @@ function Skills() {
 
   return (
     <section id="habilidades" className="relative py-24 sm:py-32">
+      <SectionGlow tone="amber" side="right" />
       <div className="mx-auto w-[min(1120px,calc(100vw-32px))]">
         <SectionHeading eyebrow={skillsHeading.eyebrow} title={skillsHeading.title} />
 
@@ -1148,114 +1203,6 @@ function Skills() {
   );
 }
 
-function CedapFramework() {
-  const { content } = usePortfolio();
-  const { cedapFramework, cedapHeading } = content;
-  const icons = [Layers3, Database, ServerCog, Gauge, CheckCircle2];
-
-  return (
-    <section id="cedap-framework" className="relative border-y border-white/[0.06] bg-white/[0.018] py-24 sm:py-32">
-      <div className="mx-auto w-[min(1120px,calc(100vw-32px))]">
-        <SectionHeading
-          eyebrow={cedapHeading.eyebrow}
-          title={cedapHeading.title}
-          intro={cedapFramework.intro}
-          centered
-        />
-
-        <motion.dl
-          className="mx-auto mt-10 grid max-w-3xl grid-cols-3 border-y border-white/10"
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          {cedapFramework.highlights.map((item, index) => (
-            <motion.div
-              key={item.label}
-              variants={fadeUp}
-              className="flex min-h-[104px] flex-col items-center justify-center border-r border-white/10 px-2 text-center last:border-r-0 sm:min-h-[116px] sm:px-5"
-            >
-              <dt className="order-2 mt-2 text-[10px] font-bold leading-4 text-muted sm:text-xs">{item.label}</dt>
-              <dd className={cn("order-1 text-2xl font-black sm:text-3xl", index === 1 ? "text-aqua" : index === 2 ? "text-amber" : "text-mint")}>{item.value}</dd>
-            </motion.div>
-          ))}
-        </motion.dl>
-
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          {cedapFramework.categories.map((category, index) => {
-            const Icon = icons[index];
-            const isLast = index === cedapFramework.categories.length - 1;
-
-            return (
-              <Reveal key={category.title} delay={index * 0.06} className={cn(isLast && "lg:col-span-2")}>
-                <GlassCard as="article" className="h-full p-6 sm:p-7">
-                  <div className={cn(isLast && "lg:grid lg:grid-cols-[0.82fr_1.18fr] lg:gap-10")}>
-                    <div>
-                      <div className="mb-6 flex items-center justify-between gap-4">
-                        <span className="grid size-11 place-items-center rounded-lg border border-mint/25 bg-mint/10 text-mint">
-                          <Icon size={22} />
-                        </span>
-                        <span className="font-mono text-[10px] font-bold text-bone/35">{String(index + 1).padStart(2, "0")}</span>
-                      </div>
-                      <h3 className="text-xl font-black text-bone sm:text-2xl">{category.title}</h3>
-                    </div>
-
-                    <div className={cn(isLast && "lg:border-l lg:border-white/10 lg:pl-10")}>
-                      <p className={cn("mt-3 text-sm leading-7 text-muted", isLast && "lg:mt-0")}>{category.description}</p>
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {category.tags.map((tag) => (
-                          <span className="tag" key={tag}>{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </GlassCard>
-              </Reveal>
-            );
-          })}
-        </div>
-
-        <Reveal className="mt-14 grid gap-8 border-y border-white/10 py-9 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-12">
-          <div>
-            <p className="font-mono text-xs font-bold uppercase text-mint">{cedapHeading.practical}</p>
-            <h3 className="mt-3 text-2xl font-black text-bone sm:text-3xl">{cedapHeading.competenciesTitle}</h3>
-            <p className="mt-4 max-w-md text-sm leading-7 text-muted">
-              {cedapHeading.competenciesIntro}
-            </p>
-          </div>
-
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {cedapFramework.competencies.map((competency) => (
-              <li key={competency} className="flex min-h-14 items-start gap-3 border-l border-mint/35 bg-white/[0.025] px-4 py-3 text-sm leading-6 text-bone/[0.78]">
-                <CheckCircle2 className="mt-1 size-4 shrink-0 text-mint" aria-hidden="true" />
-                <span>{competency}</span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-
-        <Reveal className="mt-6">
-          <GlassCard className="p-6 sm:p-7 lg:flex lg:items-center lg:gap-10">
-            <div className="lg:max-w-sm lg:shrink-0">
-              <p className="font-mono text-xs font-bold uppercase text-amber">{cedapHeading.nextSteps}</p>
-              <h3 className="mt-2 text-xl font-black text-bone sm:text-2xl">{cedapHeading.evolutionTitle}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                {cedapHeading.evolutionIntro}
-              </p>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-2 lg:mt-0">
-              {cedapFramework.evolution.map((item) => (
-                <span className="tag border-amber/20 bg-amber/[0.06] hover:border-amber/35 hover:bg-amber/10" key={item}>{item}</span>
-              ))}
-            </div>
-          </GlassCard>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function Education() {
   const { content } = usePortfolio();
   const { education, educationHeading } = content;
@@ -1281,7 +1228,7 @@ function Education() {
   );
 }
 
-function ArchitectureSketch({ accent, imageUrl, imageAlt, productionLabel }) {
+function ArchitectureSketch({ accent, imageUrl, imageAlt, productionLabel, liveUrl, visitLabel }) {
   const color = accent === "amber" ? "#f3c565" : accent === "aqua" ? "#75d8ff" : "#42f2a8";
 
   return (
@@ -1294,6 +1241,18 @@ function ArchitectureSketch({ accent, imageUrl, imageAlt, productionLabel }) {
             <span className="size-1.5 rounded-full bg-mint shadow-[0_0_10px_rgba(66,242,168,.8)]" />
             {productionLabel}
           </span>
+          {liveUrl !== "#" ? (
+            <a
+              className="project-preview-action absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-lg border border-mint/35 bg-ink/90 px-3 py-2 text-xs font-black text-bone opacity-0 shadow-panel backdrop-blur-xl transition-all duration-300 hover:border-aqua/50 hover:text-aqua focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"
+              href={liveUrl}
+              target="_blank"
+              rel="noopener"
+              aria-label={`${visitLabel}: ${imageAlt}`}
+            >
+              {visitLabel}
+              <ArrowUpRight size={14} />
+            </a>
+          ) : null}
         </>
       ) : (
         <>
@@ -1337,6 +1296,8 @@ function ProjectCard({ project, index, ui }) {
           imageUrl={project.imageUrl}
           imageAlt={project.imageAlt}
           productionLabel={ui.production}
+          liveUrl={project.liveUrl}
+          visitLabel={ui.visit}
         />
         <div className="flex flex-1 flex-col p-6">
           <p className="mb-3 font-mono text-xs font-bold uppercase text-mint">{project.status}</p>
@@ -1381,6 +1342,7 @@ function Projects() {
 
   return (
     <section id="projetos" className="relative py-24 sm:py-32">
+      <SectionGlow tone="aqua" side="left" />
       <div className="mx-auto w-[min(1120px,calc(100vw-32px))]">
         <SectionHeading
           eyebrow={projectsHeading.eyebrow}
@@ -1542,7 +1504,6 @@ function App() {
           <About />
           <Experience />
           <Skills />
-          <CedapFramework />
           <Education />
           <Projects />
           <Contact />
