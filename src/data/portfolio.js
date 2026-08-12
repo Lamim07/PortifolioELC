@@ -17,9 +17,9 @@ const portuguese = {
     language: "pt-BR",
     title: "Luis Eduardo Lamim Cardoso | Backend .NET",
     description:
-      "Portfólio profissional de Luis Eduardo Lamim Cardoso, desenvolvedor backend .NET com foco em arquitetura, SQL, modelagem de dados e sistemas corporativos.",
+      "Desenvolvedor backend .NET com foco em arquitetura, SQL, modelagem de dados e sistemas corporativos.",
   },
-  skipLink: "Ir para o conteúdo",
+  skipLink: "Ir para o Conteúdo",
   navItems: [
     { href: "#sobre", label: "Sobre" },
     { href: "#experiencia", label: "Experiência" },
@@ -66,8 +66,8 @@ const portuguese = {
     roles: ["Backend .NET", "Arquitetura de software", "SQL e sistemas corporativos"],
     statement: "Construo o backend que ninguém vê, mas todo produto precisa:",
     statementStrong: " organizado, performático e pronto para evoluir.",
-    explore: "Explorar trajetória",
-    resume: "Ver currículo",
+    explore: "Explorar Trajetória",
+    resume: "Ver Currículo",
     contact: "Contato",
     stats: [
       { label: "Núcleo técnico", value: ".NET / SQL / arquitetura em camadas", shortValue: ".NET + SQL" },
@@ -88,7 +88,7 @@ const portuguese = {
       ["Atual", profile.currentCompany],
     ],
   },
-  experienceHeading: { eyebrow: "Experiência", title: "Trajetória profissional" },
+  experienceHeading: { eyebrow: "Experiência", title: "Trajetória Profissional" },
   experiences: [
     {
       period: "Setembro de 2025 - atual",
@@ -152,17 +152,17 @@ const portuguese = {
     { period: "Fevereiro de 2025 - julho de 2029", title: "Engenharia de Software", institution: "Universidade da Região de Joinville" },
     { period: "2022 - 2024", title: "Ensino Médio", institution: "Exathum" },
     { period: "Fevereiro de 2018 - novembro de 2022", title: "Graduação na Língua Inglesa", institution: "Rockfeller Joinville America" },
-    { period: "Idiomas", title: "Espanhol fluente e inglês intermediário-avançado", institution: "Certificações informadas no currículo." },
+    { period: "Idiomas", title: "Espanhol fluente e inglês intermediário-avançado", institution: "Rotary International e Upper Maddison College" },
   ],
   projectsHeading: {
     eyebrow: "Projetos",
-    title: "Trabalhos selecionados",
+    title: "Trabalhos Selecionados",
     intro: "Projetos reais nos quais transformei necessidades de negócio em experiências digitais funcionais.",
   },
   projectUi: {
     production: "Website em produção",
     comingSoon: "Projeto em breve",
-    visit: "Visitar projeto",
+    visit: "Visitar Projeto",
     repository: "Repositório",
   },
   contact: {
@@ -170,7 +170,7 @@ const portuguese = {
     title: "Vamos conversar sobre tecnologia, backend e evolução de sistemas.",
     labels: { email: "E-mail", linkedin: "LinkedIn", whatsapp: "WhatsApp", github: "GitHub" },
   },
-  footer: { backToTop: "Voltar ao topo" },
+  footer: { backToTop: "Voltar ao Topo" },
   dock: { resume: "Currículo", email: "E-mail", linkedin: "LinkedIn", whatsapp: "WhatsApp" },
 };
 
@@ -179,7 +179,7 @@ const english = {
     language: "en",
     title: "Luis Eduardo Lamim Cardoso | .NET Backend Developer",
     description:
-      "Professional portfolio of Luis Eduardo Lamim Cardoso, a .NET backend developer focused on architecture, SQL, data modeling, and corporate systems.",
+      ".NET backend developer focused on architecture, SQL, data modeling, and corporate systems.",
   },
   skipLink: "Skip to content",
   navItems: [
@@ -195,13 +195,13 @@ const english = {
     readyAria: "Start portfolio",
     compilingAria: "DeveloperProfile is compiling",
     officeAlt: "Development office with a monitor on the desk",
-    solutionExplorer: "Solution explorer",
+    solutionExplorer: "Solution Explorer",
     output: "Output",
     readyOutput: "Build completed. Experience ready.",
     compilingOutput: "Compiling portfolio experience...",
     buildComplete: "Build completed",
     startPortfolio: "Start Portfolio",
-    mobileReady: "Start portfolio",
+    mobileReady: "Start Portfolio",
     mobileCompiling: "Compiling...",
     desktopReady: "Click anywhere to start",
     desktopCompiling: "Compiling DeveloperProfile...",
@@ -229,7 +229,7 @@ const english = {
     statement: "I build the backend no one sees, but every product needs:",
     statementStrong: " structured, performant, and ready to evolve.",
     explore: "Explore my journey",
-    resume: "View résumé",
+    resume: "Download My CV",
     contact: "Contact",
     stats: [
       { label: "Technical core", value: ".NET / SQL / layered architecture", shortValue: ".NET + SQL" },
@@ -253,7 +253,7 @@ const english = {
   experienceHeading: { eyebrow: "Experience", title: "Professional journey" },
   experiences: [
     {
-      period: "September 2025 - present",
+      period: "September 2025 - Present",
       title: "Software Developer",
       company: "Laboratório CEDAP",
       location: "Joinville, Brazil",
@@ -285,15 +285,15 @@ const english = {
   skillsHeading: { eyebrow: "Skills", title: "Technology stack and capabilities" },
   skillGroups: [
     {
-      title: "Backend and architecture",
+      title: "Backend and Architecture",
       description: "Building organized and traceable applications with clear responsibilities and sustainable maintenance.",
-      skills: [".NET", "C#", ".NET Framework 4.8", "WinForms", "Layered architecture", "Dependency injection", "Factory Pattern", "DTOs", "AutoMapper", "async/await", "LINQ", "Refactoring"],
+      skills: [".NET", "C#", ".NET Framework 4.8", "WinForms", "Layered architecture", "Dependency Injection", "Factory Pattern", "DTOs", "AutoMapper", "async/await", "LINQ", "Refactoring"],
       metric: 88,
     },
     {
       title: "Modern frontend",
       description: "Developing responsive interfaces with reusable components, modern build tooling, and utility-first styling.",
-      skills: ["JavaScript", "React", "Vite", "Tailwind CSS", "HTML", "Responsive design"],
+      skills: ["JavaScript", "React", "Vite", "Tailwind CSS", "HTML", "Responsive Design"],
       metric: 78,
     },
     {
@@ -314,7 +314,7 @@ const english = {
     { period: "February 2025 - July 2029", title: "Software Engineering", institution: "Universidade da Região de Joinville" },
     { period: "2022 - 2024", title: "High School", institution: "Exathum" },
     { period: "February 2018 - November 2022", title: "English Language Program", institution: "Rockfeller Joinville America" },
-    { period: "Languages", title: "Fluent Spanish and upper-intermediate English", institution: "Language qualifications listed in my résumé." },
+    { period: "Languages", title: "Fluent Spanish and upper-intermediate English", institution: "Rotary International (Coahuila de Zaragoza, Mexico) and Upper Maddison College (Toronto, Canada)" },
   ],
   projectsHeading: {
     eyebrow: "Projects",
@@ -322,8 +322,8 @@ const english = {
     intro: "Real projects where I turned business needs into functional digital experiences.",
   },
   projectUi: {
-    production: "Live website",
-    comingSoon: "Coming soon",
+    production: "Live Website",
+    comingSoon: "Coming Soon",
     visit: "Visit project",
     repository: "Repository",
   },
@@ -333,7 +333,7 @@ const english = {
     labels: { email: "Email", linkedin: "LinkedIn", whatsapp: "WhatsApp", github: "GitHub" },
   },
   footer: { backToTop: "Back to top" },
-  dock: { resume: "Résumé", email: "Email", linkedin: "LinkedIn", whatsapp: "WhatsApp" },
+  dock: { resume: "Resume", email: "Email", linkedin: "LinkedIn", whatsapp: "WhatsApp" },
 };
 
 export const portfolioContent = { pt: portuguese, en: english };
@@ -347,10 +347,10 @@ export const projectCatalog = [
       en: "Corporate website developed to showcase Insulfrio's industrial and commercial refrigeration solutions, with a responsive experience and direct sales contact.",
     },
     stack: {
-      pt: ["React", "Vite", "Design responsivo", "SEO"],
-      en: ["React", "Vite", "Responsive design", "SEO"],
+      pt: ["React", "Vite", "Design Responsivo", "SEO"],
+      en: ["React", "Vite", "Responsive Design", "SEO"],
     },
-    status: { pt: "Projeto publicado", en: "Published project" },
+    status: { pt: "Projeto Publicado", en: "Published Project" },
     accent: "aqua",
     imageUrl: "/assets/insulfrio-project.jpeg",
     imageAlt: {
@@ -358,7 +358,7 @@ export const projectCatalog = [
       en: "Insulfrio Refrigeração building in Joinville, Brazil",
     },
     liveUrl: "https://insulfrio.com.br/",
-    repoUrl: "#", // Substitua pelo repositório quando ele for publicado.
+    repoUrl: "https://github.com/Lamim07/LandingPageInsulfrio",
   },
 ];
 

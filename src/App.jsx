@@ -1079,7 +1079,7 @@ function About() {
   const { about } = content;
 
   return (
-    <section id="sobre" className="relative pb-24 pt-0 sm:pb-32">
+    <section id="sobre" className="relative pb-24 pt-16 sm:pb-32 sm:pt-24 lg:pt-28">
       <SectionGlow tone="mint" side="right" />
       <div className="mx-auto grid w-[min(1120px,calc(100vw-32px))] gap-12 lg:grid-cols-[0.85fr_1fr]">
         <SectionHeading eyebrow={about.eyebrow} title={about.title} />

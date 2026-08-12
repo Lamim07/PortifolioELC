@@ -1,6 +1,9 @@
 node_modules
 .pnpm-store/
 dist
+output/
+tmp/
+.vercel/
 .env
 .env.local
 *.log
