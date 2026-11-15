@@ -1,0 +1,69 @@
+.vault-timeline { position: relative; width: 100%; margin-top: 42px; }
+.vault-timeline__viewport { position: relative; width: 100%; padding: 12px 0; }
+.vault-timeline__track { width: min(1120px, calc(100% - 32px)); margin: auto; }
+.vault-timeline__intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 28px; }
+.vault-timeline__image { position: relative; height: 250px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; }
+.vault-timeline__image::after { position: absolute; inset: 0; content: ""; background: linear-gradient(0deg, rgba(7,9,9,.45), rgba(7,9,9,.08)); pointer-events: none; }
+.vault-timeline__image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.55); }
+.vault-timeline__eyebrow, .vault-timeline__date { color: var(--timeline-active); font-family: SFMono-Regular, Consolas, monospace; font-size: 11px; font-weight: 700; letter-spacing: .05em; }
+.vault-timeline__intro-copy h3 { max-width: 12ch; margin: 14px 0 20px; font-size: clamp(26px, 3.4vw, 42px); font-weight: 800; line-height: 1.06; letter-spacing: -.04em; }
+.vault-timeline__intro-copy > p { display: flex; align-items: center; gap: 10px; color: var(--timeline-muted); font-size: 12px; line-height: 1.5; }
+.vault-timeline__events { position: relative; margin-top: 38px; }
+.vault-timeline__baseline { position: absolute; top: 0; bottom: 0; left: 12px; width: 1px; background: rgba(255,255,255,.12); }
+.vault-timeline__progress { width: 100%; height: 100%; background: var(--timeline-active); transform-origin: left; opacity: .75; }
+.vault-timeline__list { display: grid; gap: 26px; margin: 0; padding: 0; list-style: none; }
+.vault-timeline__item { position: relative; min-width: 0; padding-left: 42px; }
+.vault-timeline__stem { position: absolute; top: 29px; left: 12px; width: 26px; height: 1px; background: var(--timeline-active); }
+.vault-timeline__dot { position: absolute; z-index: 1; top: 23px; left: 6px; width: 13px; height: 13px; border: 3px solid #070909; border-radius: 50%; background: var(--timeline-active); box-shadow: 0 0 0 1px var(--timeline-active), 0 0 22px rgba(66,242,168,.28); }
+.vault-timeline__card { padding: 24px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(255,255,255,.035); }
+.vault-timeline__date { margin: 0 0 10px; }
+.vault-timeline__card h4 { margin: 0; font-size: 25px; font-weight: 800; line-height: 1.12; letter-spacing: -.03em; }
+.vault-timeline__company { margin: 11px 0 0; font-size: 12px; font-weight: 600; }
+.vault-timeline__company span { color: var(--timeline-muted); font-weight: 400; }
+.vault-timeline__description { margin: 12px 0 0; color: var(--timeline-muted); font-size: 13px; line-height: 1.65; }
+.vault-timeline__details { display: inline-flex; min-height: 40px; align-items: center; gap: 9px; margin-top: 13px; padding: 0; border: 0; background: transparent; color: var(--timeline-active); font-size: 12px; font-weight: 700; cursor: pointer; }
+.vault-timeline__details svg { transition: transform .2s ease; }
+.vault-timeline__details:hover svg { transform: translate(2px, -2px); }
+.vault-timeline__dialog { width: min(680px, calc(100vw - 32px)); max-height: calc(100svh - 48px); margin: auto; padding: 0; overflow: auto; border: 1px solid rgba(66,242,168,.25); border-radius: 16px; background: #0d1211; color: inherit; box-shadow: 0 30px 120px rgba(0,0,0,.5); }
+.vault-timeline__dialog::backdrop { background: rgba(0,0,0,.72); backdrop-filter: blur(5px); }
+.vault-timeline__dialog-content { position: relative; padding: 34px; }
+.vault-timeline__dialog-content h3 { margin: 12px 32px 12px 0; font-size: 29px; font-weight: 800; line-height: 1.15; }
+.vault-timeline__dialog-content ul { display: grid; gap: 16px; margin: 26px 0 0; padding: 0; list-style: none; }
+.vault-timeline__dialog-content li { display: flex; align-items: start; gap: 12px; font-size: 14px; line-height: 1.65; }
+.vault-timeline__dialog-content li svg { flex: none; margin-top: 4px; color: var(--timeline-active); }
+.vault-timeline__close { position: absolute; top: 15px; right: 15px; display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: rgba(255,255,255,.04); color: inherit; cursor: pointer; }
+
+@media (min-width: 900px) and (min-height: 680px) {
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__viewport { height: calc(100svh - 116px); min-height: 560px; overflow: hidden; padding: 0; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__track { display: flex; align-items: center; gap: 48px; width: max-content; height: 100%; margin: 0; padding: 0 48px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__intro { display: flex; flex: none; gap: 30px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__image { flex: none; width: clamp(240px, 25vw, 340px); height: min(400px, 58svh); }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__intro-copy { width: 200px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__events { flex: none; height: 100%; margin: 0; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__baseline { top: 50%; bottom: auto; left: 0; width: 100%; height: 1px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__list { display: flex; height: 100%; gap: 56px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__item { flex: none; width: 390px; height: 100%; padding: 0; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__card { position: absolute; bottom: calc(50% + 29px); left: 0; width: 100%; padding: 16px 20px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__item:nth-child(even) .vault-timeline__card { top: calc(50% + 29px); bottom: auto; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__stem { top: calc(50% - 29px); left: 24px; width: 1px; height: 29px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__item:nth-child(even) .vault-timeline__stem { top: 50%; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__dot { top: calc(50% - 6px); left: 18px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__details { min-height: 32px; margin-top: 9px; }
+  .vault-timeline:not(.vault-timeline--reduced) .vault-timeline__description { line-height: 1.55; }
+}
+@media (max-width: 600px) {
+  .vault-timeline__intro { grid-template-columns: 1fr; gap: 20px; }
+  .vault-timeline__image { height: 190px; }
+  .vault-timeline__intro-copy h3 { max-width: 18ch; margin: 10px 0 12px; }
+  .vault-timeline__card { padding: 20px 17px; }
+  .vault-timeline__card h4 { font-size: 23px; }
+  .vault-timeline__company span { display: block; margin-top: 3px; }
+  .vault-timeline__item { padding-left: 34px; }
+  .vault-timeline__stem { width: 20px; }
+  .vault-timeline__dialog-content { padding: 26px 20px; }
+  .vault-timeline__dialog-content h3 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vault-timeline__viewport { height: auto !important; overflow: visible !important; }
+  .vault-timeline__track { transform: none !important; }
+}

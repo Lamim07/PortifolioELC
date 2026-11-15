@@ -91,6 +91,8 @@ const portuguese = {
   experienceHeading: { eyebrow: "Experiência", title: "Trajetória Profissional" },
   experiences: [
     {
+      id: "cedap-developer",
+      startMonth: "2025-09",
       period: "Setembro de 2025 - atual",
       title: "Software Developer",
       company: "Laboratório CEDAP",
@@ -107,6 +109,8 @@ const portuguese = {
       ],
     },
     {
+      id: "cedap-laboratory",
+      startMonth: "2025-03",
       period: "Março de 2025 - agosto de 2025",
       title: "Estágio de Assistente de Laboratório",
       company: "Laboratório CEDAP",
@@ -172,6 +176,20 @@ const portuguese = {
   },
   footer: { backToTop: "Voltar ao Topo" },
   dock: { resume: "Currículo", email: "E-mail", linkedin: "LinkedIn", whatsapp: "WhatsApp" },
+  ui: {
+    start: "Início",
+    menu: "Menu",
+    closeMenu: "Fechar",
+    experienceSubtitle: "Da qualidade ao desenvolvimento",
+    experiencePeriod: "2025 — atual",
+    experienceScroll: "Role para acompanhar minha trajetória",
+    projectCount: (n) => `${String(n).padStart(2, "0")} ${n === 1 ? "projeto" : "projetos"}`,
+    skillCount: (n) => `${n} tecnologias`,
+    stackLabel: "Stack",
+    statusLabel: "Status",
+    copyEmail: "Copiar e-mail",
+    copied: "Copiado",
+  },
 };
 
 const english = {
@@ -253,6 +271,8 @@ const english = {
   experienceHeading: { eyebrow: "Experience", title: "Professional journey" },
   experiences: [
     {
+      id: "cedap-developer",
+      startMonth: "2025-09",
       period: "September 2025 - Present",
       title: "Software Developer",
       company: "Laboratório CEDAP",
@@ -269,6 +289,8 @@ const english = {
       ],
     },
     {
+      id: "cedap-laboratory",
+      startMonth: "2025-03",
       period: "March 2025 - August 2025",
       title: "Laboratory Assistant Intern",
       company: "Laboratório CEDAP",
@@ -334,6 +356,20 @@ const english = {
   },
   footer: { backToTop: "Back to top" },
   dock: { resume: "Resume", email: "Email", linkedin: "LinkedIn", whatsapp: "WhatsApp" },
+  ui: {
+    start: "Home",
+    menu: "Menu",
+    closeMenu: "Close",
+    experienceSubtitle: "From quality to development",
+    experiencePeriod: "2025 — present",
+    experienceScroll: "Scroll to explore my journey",
+    projectCount: (n) => `${String(n).padStart(2, "0")} ${n === 1 ? "project" : "projects"}`,
+    skillCount: (n) => `${n} technologies`,
+    stackLabel: "Stack",
+    statusLabel: "Status",
+    copyEmail: "Copy email",
+    copied: "Copied",
+  },
 };
 
 export const portfolioContent = { pt: portuguese, en: english };
@@ -359,6 +395,52 @@ export const projectCatalog = [
     },
     liveUrl: "https://insulfrio.com.br/",
     repoUrl: "https://github.com/Lamim07/LandingPageInsulfrio",
+  },
+  {
+    title: "Luis & Nubia",
+    description: {
+      pt: "Convite de casamento digital com a temática de passaporte México–Brasil, reunindo nossa história, programação, local, fotos, dress code, lista de presentes, confirmação de presença e música do convite.",
+      en: "Digital wedding invitation with a Mexico–Brazil passport theme, bringing together our story, schedule, venue, photos, dress code, gift list, RSVP and the invitation's music.",
+    },
+    stack: {
+      pt: ["React", "Design Responsivo", "SEO"],
+      en: ["React", "Responsive Design", "SEO"],
+    },
+    status: { pt: "Projeto Publicado", en: "Published Project" },
+    accent: "amber",
+    imageUrl: "/assets/wedding-luis-nubia-project.jpg",
+    imageMobileUrl: "/assets/wedding-luis-nubia-project-mobile.jpg",
+    // captura do site: mostrar o topo da página
+    imagePosition: "top",
+    imageAlt: {
+      pt: "Página inicial do convite de casamento de Luis e Nubia",
+      en: "Home page of Luis and Nubia's wedding invitation",
+    },
+    liveUrl: "https://www.weddingluisandnubia.com/",
+    repoUrl: "#",
+  },
+  {
+    title: "One Man Fishing — Bio",
+    description: {
+      pt: "Página de links da One Man Fishing, marca de pesca do Litoral Norte de Santa Catarina, que reúne a loja no Mercado Livre, YouTube, Instagram, TikTok e contato para parcerias.",
+      en: "Link-in-bio page for One Man Fishing, a fishing brand from the northern coast of Santa Catarina, bringing together its Mercado Livre store, YouTube, Instagram, TikTok and partnership contact.",
+    },
+    stack: {
+      pt: ["Next.js", "React", "Design Responsivo", "SEO"],
+      en: ["Next.js", "React", "Responsive Design", "SEO"],
+    },
+    status: { pt: "Projeto Publicado", en: "Published Project" },
+    accent: "aqua",
+    imageUrl: "/assets/onemanfishing-bio-project.jpg",
+    imageMobileUrl: "/assets/onemanfishing-bio-project-mobile.jpg",
+    // captura do site: mostrar o topo da página
+    imagePosition: "top",
+    imageAlt: {
+      pt: "Página de links da One Man Fishing com acesso à loja e às redes sociais",
+      en: "One Man Fishing link page with access to the store and social media",
+    },
+    liveUrl: "https://onemanfishing.com/bio/",
+    repoUrl: "#",
   },
 ];
 

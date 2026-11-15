@@ -9,3 +9,4 @@ tmp/
 *.log
 assets/hero-architecture.png
 assets/luis-eduardo-lamim-cardoso-curriculo.pdf
+.claude/settings.local.json
