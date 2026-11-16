@@ -4,9 +4,9 @@
 Este repositório é o portfólio de Luis Eduardo Lamim Cardoso (dev C# .NET, Joinville/SC) e também a base do **Premium Web Studio**: um conjunto de agentes, skills e workflows para criar e modificar websites com qualidade de estúdio. Textos e documentação em **português**.
 
 ## Stack
-- **Este repo (preservar, não migrar em silêncio):** React 18 + Vite 6 + Tailwind CSS 3 + shadcn/ui (`components.json`, estilo new-york, alias `@/` → `src/`) + `lucide-react` + `framer-motion` 11 + `gsap` 3.13 · TypeScript para arquivos novos (`tsconfig.json`) · gerenciador **pnpm** (`packageManager: pnpm@10.34.0`) · Node ≥ 22.
+- **Este repo (preservar, não migrar em silêncio):** Next.js 16 (App Router, migrado do Vite em 16/11/2026) + React 19 + Tailwind CSS 3 + shadcn/ui (`components.json`, estilo new-york, alias `@/` → `src/`) + `lucide-react` + `framer-motion` 11 + `gsap` 3.13 · TypeScript para arquivos novos (`tsconfig.json`) · gerenciador **pnpm** (`packageManager: pnpm@10.34.0`) · Node ≥ 22.
   - Testes: Playwright (`@playwright/test` 1.65.1, devDependency) com Chromium instalado.
-  - Comandos: `pnpm dev` (http://127.0.0.1:5173) · `pnpm build` · `pnpm typecheck` · `pnpm preview` (http://127.0.0.1:4173).
+  - Comandos: `pnpm dev` (http://127.0.0.1:5173) · `pnpm build` · `pnpm typecheck` · `pnpm preview` (http://127.0.0.1:4173, serve o build do Next).
 - **Projetos novos (padrão):** Next.js App Router + TypeScript + Tailwind CSS v4 + Lucide + shadcn/ui/Radix + Motion; GSAP quando justificado; Playwright para testes. Verificar versões com `npm view <pacote> version` no dia.
 - Migrar a stack de um projeto existente exige plano próprio e aprovação explícita.
 

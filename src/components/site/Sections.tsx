@@ -1,3 +1,5 @@
+"use client";
+
 import { useMemo, useRef, useState, type PointerEvent } from "react";
 import { AnimatePresence, motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Check, Copy, Github, Linkedin, MessageCircle, FileText, ArrowUp } from "lucide-react";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState, type PointerEvent } from "react";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { ArrowDown } from "lucide-react";

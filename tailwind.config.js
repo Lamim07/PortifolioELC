@@ -2,7 +2,7 @@
 const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
 
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -17,8 +17,8 @@ export default {
         "inv-accent": token("inv-accent"),
       },
       fontFamily: {
-        sans: ['"Instrument Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ['"JetBrains Mono"', "ui-monospace", "Consolas", "monospace"],
+        sans: ["var(--font-sans)", '"Instrument Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", '"JetBrains Mono"', "ui-monospace", "Consolas", "monospace"],
       },
       letterSpacing: {
         display: "-0.045em",

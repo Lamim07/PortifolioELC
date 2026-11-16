@@ -3,11 +3,11 @@ const { existsSync, readFileSync, writeFileSync } = require("node:fs");
 const { join } = require("node:path");
 
 const projectRoot = join(__dirname, "..");
-const viteExecutable = join(
+const nextExecutable = join(
   projectRoot,
   "node_modules",
   ".bin",
-  process.platform === "win32" ? "vite.cmd" : "vite",
+  process.platform === "win32" ? "next.cmd" : "next",
 );
 const signatureFile = join(
   projectRoot,
@@ -40,15 +40,15 @@ if (process.argv[2] === "check") {
     : "";
 
   process.exit(
-    existsSync(viteExecutable) && installedSignature === dependencySignature()
+    existsSync(nextExecutable) && installedSignature === dependencySignature()
       ? 0
       : 1,
   );
 }
 
 if (process.argv[2] === "write") {
-  if (!existsSync(viteExecutable)) {
-    console.error("O Vite nao foi instalado corretamente.");
+  if (!existsSync(nextExecutable)) {
+    console.error("O Next.js nao foi instalado corretamente.");
     process.exit(1);
   }
 

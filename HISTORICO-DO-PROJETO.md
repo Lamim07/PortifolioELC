@@ -1,7 +1,7 @@
 # Histórico do projeto — Portfólio Luis Eduardo Lamim Cardoso
 
 Documento de passagem de bastão: o que foi feito, onde está cada coisa e como retomar o trabalho em outro computador.
-Última atualização: **15/11/2026**.
+Última atualização: **16/11/2026**.
 
 ---
 
@@ -12,7 +12,7 @@ O portfólio foi **totalmente redesenhado** com o workflow `cinematic-redesign` 
 
 ### Antes desta fase (já existia no repositório, sem commit)
 - Montagem do **Premium Web Studio** dentro do repo: `CLAUDE.md`, agentes em `.claude/agents/`, skills em `.claude/skills/`, `skills-lock.json` (skills externas de `emilkowalski/skills`, MIT), `.mcp.json` (Chrome DevTools MCP e 21st MCP), `docs/architecture.md`, `docs/tool-inventory.md`.
-- Preparação de stack: TypeScript (`tsconfig.json`, script `typecheck`), alias `@/` no Vite, shadcn/ui (`components.json`, `src/lib/utils.ts`), Playwright, GSAP, componente de timeline (`src/components/ui/timeline*`).
+- Preparação de stack: TypeScript (`tsconfig.json`, script `typecheck`), alias `@/`, shadcn/ui (`components.json`, `src/lib/utils.ts`), Playwright, GSAP, componente de timeline (`src/components/ui/timeline*`).
 
 ### Fase 1–3 · Auditoria, inventário e pesquisa
 - Auditoria do site antigo com screenshots e métricas → `docs/redesign/01-auditoria.md`.
@@ -44,11 +44,17 @@ O portfólio foi **totalmente redesenhado** com o workflow `cinematic-redesign` 
 - Adicionados **Luis & Nubia** (https://www.weddingluisandnubia.com/) e **One Man Fishing — Bio** (https://onemanfishing.com/bio/) ao lado do **Insulfrio**.
 - Imagens = capturas de tela dos próprios sites (desktop + mobile).
 
+### Atualização · Migração para Next.js (16/11/2026)
+- Vite trocado por **Next.js 16.4.6 (App Router) + React 19**, mesmo visual, Tailwind 3 e framer-motion. Plano: `docs/redesign/07-migracao-nextjs.md`.
+- Idiomas viraram rotas pré-renderizadas: `/` (inglês) e `/pt` (português), com `hreflang`. Fontes servidas pelo próprio site via `next/font`.
+- Removidos: `index.html`, `src/main.jsx`, `vite.config.js`, `vite` e `@vitejs/plugin-react`. Branches extras e a VersaoClaude foram descartadas; restam `main` e `redesign/planta-do-sistema`.
+
 ## 3. Onde está cada coisa
 | Caminho | Conteúdo |
 |---|---|
 | `src/data/portfolio.js` | **Todo o conteúdo** (PT/EN): perfil, textos, experiências, habilidades, formação, rótulos de interface (`ui`) e `projectCatalog` |
-| `src/App.jsx` | Composição da página, idioma (localStorage) e metadados |
+| `src/app/` | Rotas `/` e `/pt`, layouts por idioma e metadados (`site.tsx`) |
+| `src/components/site/Portfolio.tsx` | Composição da página (antigo `App.jsx`) |
 | `src/components/site/Header.tsx` | Header, navegação numerada, seletor de idioma, menu mobile |
 | `src/components/site/Hero.tsx` | Nome animado, diagrama de camadas, CTAs |
 | `src/components/site/Sections.tsx` | Sobre, Experiência, Projetos, faixa de stack, Habilidades, Formação, Contato, Footer |
@@ -82,11 +88,12 @@ Configurações locais que **não** vão para o Git (refazer na máquina nova se
 
 ## 5. Branch e deploy
 - Todo este trabalho está na branch **`redesign/planta-do-sistema`**. A `main` **não foi alterada** — de propósito, porque o projeto foi preparado para deploy na Vercel e um push na `main` poderia publicar o site em produção.
+- **Vercel:** antes do merge, conferir se o projeto lá está com o preset "Next.js" (antes era Vite, saída `dist`).
 - Para publicar: abrir um Pull Request da branch para a `main` no GitHub e fazer o merge quando estiver satisfeito.
 
 ## 6. Pendências
 - [ ] Revisar as descrições e a stack de **Luis & Nubia** e **One Man Fishing** (stack só com o que foi detectado: React; Next.js + React). Adicionar repositórios se existirem.
-- [ ] LCP mobile 2,65 s (meta 2,5 s): hospedar as fontes localmente em `public/fonts/` e/ou pré-renderizar o hero.
+- [ ] LCP mobile 2,65 s (meta 2,5 s): fontes locais e HTML pré-renderizado já vieram com o Next — **medir de novo**.
 - [ ] Registrar autoria/licença da foto do Insulfrio.
 - [ ] Testar em Safari/iOS e Firefox (só Chromium foi testado).
 - [ ] Decidir se remove o que ficou sem uso: `src/components/ui/timeline*`, `public/assets/office-intro.png` e a dependência `gsap`.
