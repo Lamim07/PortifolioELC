@@ -9,7 +9,6 @@ const sans = Instrument_Sans({ subsets: ["latin"], weight: ["400", "500", "600",
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 
 const SITE = "https://luiseduardolamim.com.br";
-const IMAGE = `${SITE}/assets/hero-architecture.png`;
 
 export const viewport: Viewport = {
   themeColor: [
@@ -21,6 +20,8 @@ export const viewport: Viewport = {
 export function buildMetadata(language: Language): Metadata {
   const { seo } = portfolioContent[language];
   const path = language === "pt" ? "/pt" : "/";
+  // Imagem de compartilhamento gerada por scripts/generate-og.mjs (1200×630).
+  const image = { url: `/assets/og-${language}.png`, width: 1200, height: 630, alt: seo.title };
   return {
     metadataBase: new URL(SITE),
     title: seo.title,
@@ -35,9 +36,9 @@ export function buildMetadata(language: Language): Metadata {
       title: seo.title,
       description: seo.description,
       locale: language === "pt" ? "pt_BR" : "en_US",
-      images: [IMAGE],
+      images: [image],
     },
-    twitter: { card: "summary_large_image", title: seo.title, description: seo.description, images: [IMAGE] },
+    twitter: { card: "summary_large_image", title: seo.title, description: seo.description, images: [image] },
   };
 }
 

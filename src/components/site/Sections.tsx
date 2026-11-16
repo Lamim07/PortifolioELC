@@ -7,6 +7,7 @@ import { getProjects, profile } from "@/data/portfolio";
 import { EASE, usePortfolio } from "@/lib/portfolio-context";
 import { cn } from "@/lib/utils";
 import { ArrowIcon, CountUp, Magnetic, MaskLines, Reveal, ScrollWords, SectionHead } from "./primitives";
+import { FlowButton } from "@/components/ui/flow-button";
 
 /* ───────────────────────── 01 Sobre ───────────────────────── */
 export function About() {
@@ -288,16 +289,16 @@ function ProjectCase({
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             {live ? (
               <Magnetic>
-                <a className="btn btn-solid btn-sm w-full sm:w-auto" href={project.liveUrl} target="_blank" rel="noopener">
-                  {labels.visit} <ArrowIcon size={14} />
-                </a>
+                <FlowButton solid size="sm" className="w-full sm:w-auto" href={project.liveUrl} target="_blank" rel="noopener" icon={<ArrowIcon size={14} />}>
+                  {labels.visit}
+                </FlowButton>
               </Magnetic>
             ) : null}
             {project.repoUrl !== "#" ? (
               <Magnetic>
-                <a className="btn btn-sm w-full sm:w-auto" href={project.repoUrl} target="_blank" rel="noopener">
-                  <Github size={15} /> {labels.repository}
-                </a>
+                <FlowButton size="sm" className="w-full sm:w-auto" href={project.repoUrl} target="_blank" rel="noopener" icon={<Github size={15} />}>
+                  {labels.repository}
+                </FlowButton>
               </Magnetic>
             ) : null}
           </div>
@@ -479,7 +480,7 @@ export function Contact() {
               <WaveText text={`@${domain}`} />
             </span>
           </a>
-          <button type="button" onClick={copy} className="label inline-flex min-h-11 w-fit shrink-0 items-center gap-2 whitespace-nowrap border border-inv-fg/30 px-4 transition-colors hover:border-inv-accent hover:text-inv-accent">
+          <button type="button" onClick={copy} className="label inline-flex min-h-11 w-fit shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-inv-fg/30 px-5 transition-colors hover:border-inv-accent hover:text-inv-accent">
             <AnimatePresence mode="wait" initial={false}>
               <motion.span key={copied ? "ok" : "copy"} className="inline-flex items-center gap-2" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }}>
                 {copied ? <Check size={14} /> : <Copy size={14} />}

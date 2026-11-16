@@ -49,6 +49,12 @@ O portfólio foi **totalmente redesenhado** com o workflow `cinematic-redesign` 
 - Idiomas viraram rotas pré-renderizadas: `/` (inglês) e `/pt` (português), com `hreflang`. Fontes servidas pelo próprio site via `next/font`.
 - Removidos: `index.html`, `src/main.jsx`, `vite.config.js`, `vite` e `@vitejs/plugin-react`. Branches extras e a VersaoClaude foram descartadas; restam `main` e `redesign/planta-do-sistema`.
 
+### Atualização · Botões, logo e imagem de compartilhamento (16/11/2026)
+- Botões de ação trocados pelo **FlowButton** (`src/components/ui/flow-button.tsx`); todos os controles em pílula. Pesquisa em `research/botoes/components.md`.
+- Nova logo: monograma **LC em camadas** com o ponto violeta (`src/components/site/Logo.tsx` e `public/assets/favicon.svg`).
+- Imagens Open Graph 1200×630 por idioma (`public/assets/og-en.png` e `og-pt.png`), geradas por `node scripts/generate-og.mjs`.
+- Publicado na `main` a pedido do usuário.
+
 ## 3. Onde está cada coisa
 | Caminho | Conteúdo |
 |---|---|

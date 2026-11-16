@@ -6,11 +6,13 @@ import { profile } from "@/data/portfolio";
 import { EASE, usePortfolio, type Language } from "@/lib/portfolio-context";
 import { cn } from "@/lib/utils";
 import { ArrowIcon, Magnetic } from "./primitives";
+import { FlowButton } from "@/components/ui/flow-button";
+import { LogoMark } from "./Logo";
 
 export function LanguageSwitch({ className }: { className?: string }) {
   const { language, setLanguage, content } = usePortfolio();
   return (
-    <div className={cn("relative flex border border-ink/15", className)} role="group" aria-label={content.header.languageLabel}>
+    <div className={cn("relative flex rounded-full border border-ink/15 p-0.5", className)} role="group" aria-label={content.header.languageLabel}>
       {(["pt", "en"] as Language[]).map((option) => {
         const active = language === option;
         return (
@@ -23,7 +25,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
             onClick={() => setLanguage(option)}
             className={cn("relative z-10 min-h-9 min-w-10 px-2.5 font-mono text-[11px] uppercase transition-colors duration-300", active ? "text-paper" : "text-muted hover:text-ink")}
           >
-            {active ? <motion.span layoutId="lang-pill" className="absolute inset-0 -z-10 bg-ink" transition={{ type: "spring", stiffness: 420, damping: 34 }} /> : null}
+            {active ? <motion.span layoutId="lang-pill" className="absolute inset-0 -z-10 rounded-full bg-ink" transition={{ type: "spring", stiffness: 420, damping: 34 }} /> : null}
             {option.toUpperCase()}
           </button>
         );
@@ -88,7 +90,7 @@ export function Header() {
             <span className="sr-only">{header.homeLabel}:</span>
             <span className="relative grid size-9 place-items-center overflow-hidden border border-ink font-mono text-xs font-bold">
               <span className="absolute inset-0 origin-bottom scale-y-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-y-100" />
-              <span className="relative transition-colors duration-300 group-hover:text-paper">{profile.initials}</span>
+              <LogoMark className="relative size-7 transition-colors duration-300 group-hover:text-paper" />
             </span>
             <span className="hidden leading-tight sm:block">
               <span className="block text-sm font-semibold">{profile.name}</span>
@@ -114,13 +116,13 @@ export function Header() {
           <div className="flex items-center gap-3">
             <LanguageSwitch className="hidden md:flex" />
             <Magnetic className="hidden xl:inline-flex">
-              <a className="btn btn-solid btn-sm" href="#contato">
-                {header.contactCta} <ArrowIcon size={14} />
-              </a>
+              <FlowButton solid size="sm" href="#contato" icon={<ArrowIcon size={14} />}>
+                {header.contactCta}
+              </FlowButton>
             </Magnetic>
             <button
               type="button"
-              className="label min-h-10 border border-ink px-4 xl:hidden"
+              className="label min-h-10 rounded-full border border-ink px-5 xl:hidden"
               aria-expanded={open}
               aria-controls="menu-mobile"
               aria-label={open ? header.closeMenu : header.openMenu}
@@ -188,7 +190,7 @@ function LanguageSwitchInverse() {
           type="button"
           aria-pressed={language === option}
           onClick={() => setLanguage(option)}
-          className={cn("min-h-10 min-w-11 px-3 font-mono text-xs uppercase", language === option ? "bg-inv-fg text-inv-bg" : "text-inv-muted")}
+          className={cn("min-h-10 min-w-11 rounded-full px-3 font-mono text-xs uppercase", language === option ? "bg-inv-fg text-inv-bg" : "text-inv-muted")}
         >
           {option.toUpperCase()}
         </button>

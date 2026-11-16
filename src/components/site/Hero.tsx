@@ -7,6 +7,7 @@ import { profile } from "@/data/portfolio";
 import { EASE, usePortfolio } from "@/lib/portfolio-context";
 import { cn } from "@/lib/utils";
 import { ArrowIcon, Magnetic } from "./primitives";
+import { FlowButton } from "@/components/ui/flow-button";
 
 /** Nome com letras subindo em cascata atrás de máscara. */
 function SplitName({ lines }: { lines: string[] }) {
@@ -231,15 +232,14 @@ export function Hero() {
               transition={{ duration: 0.8, ease: EASE, delay: 0.75 }}
             >
               <Magnetic>
-                <a className="btn btn-solid w-full sm:w-auto" href="#experiencia">
+                <FlowButton solid className="w-full sm:w-auto" href="#experiencia" icon={<ArrowDown size={16} />}>
                   {hero.explore}
-                  <ArrowDown size={16} className="transition-transform duration-300 group-hover:translate-y-0.5" />
-                </a>
+                </FlowButton>
               </Magnetic>
               <Magnetic>
-                <a className="btn w-full sm:w-auto" href={profile.resumeUrl} target="_blank" rel="noopener">
-                  {hero.resume} <ArrowIcon />
-                </a>
+                <FlowButton className="w-full sm:w-auto" href={profile.resumeUrl} target="_blank" rel="noopener" icon={<ArrowIcon />}>
+                  {hero.resume}
+                </FlowButton>
               </Magnetic>
             </motion.div>
           </div>

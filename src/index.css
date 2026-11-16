@@ -83,28 +83,7 @@
     @apply fixed left-4 top-3 z-[80] -translate-y-20 bg-ink px-4 py-2 text-sm font-semibold text-paper transition-transform focus:translate-y-0;
   }
 
-  /* Botões retangulares com preenchimento que varre da esquerda */
-  .btn {
-    @apply relative isolate inline-flex min-h-[52px] items-center justify-center gap-3 overflow-hidden border border-ink px-6 text-[15px] font-semibold transition-colors duration-300;
-  }
-  .btn::before {
-    content: "";
-    @apply absolute inset-0 -z-10 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out;
-  }
-  .btn:hover::before,
-  .btn:focus-visible::before {
-    @apply scale-x-100;
-  }
-  .btn:hover,
-  .btn:focus-visible {
-    @apply border-accent text-paper;
-  }
-  .btn-solid {
-    @apply bg-ink text-paper;
-  }
-  .btn-sm {
-    @apply min-h-10 px-4 text-sm;
-  }
+  /* Botões: componente FlowButton (src/components/ui/flow-button.tsx) */
 
   /* Sublinhado que cresce no hover */
   .link-line {
