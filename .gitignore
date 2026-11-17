@@ -9,10 +9,6 @@ tmp/
 *.log
 assets/hero-architecture.png
 assets/luis-eduardo-lamim-cardoso-curriculo.pdf
-.claude/settings.local.json
-
-# Restos de build e versão abandonada
 .next/
 *.tsbuildinfo
-VersaoClaude/
 next-env.d.ts

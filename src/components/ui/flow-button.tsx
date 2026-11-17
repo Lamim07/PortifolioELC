@@ -3,7 +3,7 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-// FlowButton: o botão escolhido pelo usuário como padrão em 05/11/2026 (origem 21st.dev, colado por ele).
+// FlowButton: botão padrão do site.
 // Adaptado ao Tailwind 3 e aos tokens da direção "Planta do sistema" (ink, paper, accent), sempre como link.
 // No hover/foco: a pílula vira retângulo arredondado, o ícone troca de lado e um círculo enche o botão.
 // Com prefers-reduced-motion, as mesmas mudanças acontecem sem animação.
